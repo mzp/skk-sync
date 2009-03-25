@@ -7,19 +7,14 @@ from google.appengine.api import users
 from google.appengine.ext.webapp.util import login_required
 from django import newforms
 from django.newforms import models
-from google.appengine.ext import db
 from google.appengine.ext.db import djangoforms
+from google.appengine.ext import db
 
-class Word(db.Model):
-  user = db.UserProperty()
-  word = db.StringProperty(verbose_name="単語",required=True)
-  yomi = db.StringProperty(verbose_name="読み",required=True)
-  date = db.DateTimeProperty(auto_now_add=True)
-  annotation = db.StringProperty(verbose_name="注釈",required=False)
+import model
 
 class WordForm(djangoforms.ModelForm):
   class Meta:
-    model = Word
+    model = model.Word
     exclude = ['user']
 
 class BaseHandler(webapp.RequestHandler):
@@ -59,6 +54,7 @@ class DictHandler(BaseHandler):
     user = users.get_current_user()
     if not user:
       self.redirect(users.create_login_url('/'))
+    self.request.charset = 'utf8'
     form = WordForm(self.request)
     if form.is_valid():
       model = form.save(commit=False)
