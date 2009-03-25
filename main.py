@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding:utf-8 -*-
 import wsgiref.handlers
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
@@ -44,13 +45,13 @@ class HomeHandler(BaseHandler):
     words = db.GqlQuery("SELECT * FROM Word WHERE user = :1 ORDER BY yomi ASC",
                         user)
     count = words.count()
-    last_mod = db.GqlQuery("SELECT * FROM Word WHERE user = :1 ORDER BY date DESC LIMIT 1",
-                           user).get().date
+    last = db.GqlQuery("SELECT * FROM Word WHERE user = :1 ORDER BY date DESC LIMIT 1",user).get()
+
     self.render('home',{
         'nickname': user.nickname(),
         'words': words,
         'words_count':count,
-        'last_mod':last_mod
+        'last_mod':last.date if last else None
         })
 
 class DictHandler(BaseHandler):

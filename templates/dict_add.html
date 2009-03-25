@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}SKK Sync/単語の追加{% endblock %}
+{% block content %}
+<h1 class="title">単語の追加</h1>
+<form action="/dict/add" method="POST">
+  <fieldset>
+    <legend>単語の追加</legend>
+    {{ form.as_p }}
+    <input type="submit" value="追加" />
+  </fieldset>
+</form>
+{% endblock %}
