@@ -1,6 +1,36 @@
 {% extends "base.html" %}
+{% block title %}SKK Sync/ホーム{% endblock %}
 {% block content %}
-<div class="page span-22 prepend-1 append-1">
-  <h1 class="title">x</h1>
+<div class="span-16">
+  <h1 class="title">あなたの辞書</h1>
+  <table>
+    <tr>
+      <td>鏑木</td><td>かぶらぎ</td><td>X</td>
+    </tr>
+    <tr>
+      <td>結縁</td><td>ゆうえん</td><td>X</td>
+    </tr>
+  </table>
+  <form method="post" action="/dict/add">
+    <fieldset>
+      <legend>単語の追加</legend>
+      {% if error_message %}<div class="error">{{ error_message }}</div>{% endif %}
+      {% if info_message %}<div class="info">{{ info_message }}</div>{% endif %}
+      <p><label>単語:</label> <input name="word" size="50"/></p>
+      <p><label>よみ:</label> <input name="yomi" size="50"/></p>
+      <p><label>注釈:</label> <input name="annotation" size="50"/></p>
+      <p><input type="submit" value="追加" /></p>
+    </fieldset>
+  </form>
+
+</div>
+
+<div class="span-5 navigation">
+  <h1><a href="/user/{{ nickname }}">{{ nickname }}</a></h1>
+  <p>アカウント設定</p>
+  <dl>
+    <dt>登録単語数</dt><dd>42個</dd>
+    <dt>最終更新時刻</dt><dd>2009/03/25 13:15+9:00</dd>
+  </dl>
 </div>
 {% endblock %}

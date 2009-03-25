@@ -3,13 +3,14 @@ import wsgiref.handlers
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.api import users
+from google.appengine.ext.webapp.util import login_required
 
 class BaseHandler(webapp.RequestHandler):
   def render(self,name,context={}):
     user = users.get_current_user()
     if user:
       context['greeting'] = ("<a href=\"%s\">ログアウト</a>" %
-                             users.create_logout_url(self.request.url))
+                             users.create_logout_url('/'))
     else:
       context['greeting'] = ("<a href=\"%s\">登録/ログイン</a>" %
                              users.create_login_url('/home'))
@@ -21,11 +22,10 @@ class MainHandler(BaseHandler):
     self.render('index')
 
 class HomeHandler(BaseHandler):
+  @login_required
   def get(self):
     user = users.get_current_user()
-    if not user:
-      self.redirect('/')
-    self.render('home')
+    self.render('home',{'nickname': user.nickname()})
 
 def main():
   application = webapp.WSGIApplication([('/', MainHandler),

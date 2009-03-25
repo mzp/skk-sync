@@ -24,7 +24,8 @@
       <h2 class="description">SKK辞書を同期しよう!</h2>
       <div class="navigation">
 	<ul>
-	  <li>トップページ</li>
+	  <li><a href="/">トップページ</a></li>
+	  <li><a href="/home">ホーム</a></li>
 	  <li>ダウンロード</li>
 	  <li>{{ greeting }}</li>
 	</ul>
@@ -32,7 +33,9 @@
     </div>
 
     <div class="container">
-      {% block content %}{% endblock %}
+      <div class="page span-22 prepend-1 append-1">
+	{% block content %}{% endblock %}
+      </div>
     </div>
 
     <div class="publication">
@@ -41,11 +44,11 @@
 	<div>
 	  <h2 class="title">辞書の管理</h2>
 	  <ul>
-	    <li>辞書の管理</a></li>
+	    <li>単語の登録・削除</a></li>
 	    <li>辞書の公開</a></li>
 	    <li>みんなの辞書を検索</li>
 	    <li>インポート・エクスポート</li>
-	    <li>設定</li>
+	    <li>アカウント設定</li>
 	  </ul>
 	</div>
 
