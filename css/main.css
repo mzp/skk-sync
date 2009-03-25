@@ -1,11 +1,22 @@
-body {
-    background-image: url("ribon.gif");
-    background-repeat: no-repeat;
-    background-position: right top;
+.site,.publication {
+  background-image: url(grad.png);
+  background-repeat:repeat-x;
+  background-color: #C4E8EB;
+}
+
+.site{
+  padding:30px 30px 0px;
+  border-bottom: 1px solid #C7DFED;
+  margin-bottom:30px;
+}
+
+.publication{
+  padding:10px 30px 0px;
+  border-top: 1px solid #C7DFED;
 }
 
 .site .navigation > ul  {
-  text-align:justify;
+  text-align:right;
 }
 
 .site .navigation > ul > li {
@@ -13,23 +24,27 @@ body {
   width: 120px;
   font-size:16px;
   font-weight:bold;
+  text-align:center;
 }
 
-.site .navigation > div {
+.publication .navigation > div {
   vertical-align: top;
   display: inline-block;
   width: 200px;
 }
 
-.site .navigation > div > h2.title {
+.publication .navigation > h1.title {
+  font-size:18px;
+}
+.publication .navigation > div > h2.title {
   font-size:16px;
 }
 
-.site .credits {
+.publication .credits {
   text-align: right;
 }
 
-.site .credits > *{
+.publication .credits > *{
   font-style:italic;
   text-align: right;
   margin:0;
