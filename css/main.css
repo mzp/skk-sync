@@ -1,6 +1,38 @@
-body{
+body {
     background-image: url("ribon.gif");
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-position: right top;
 }
+
+.site .navigation > ul  {
+  text-align:justify;
+}
+
+.site .navigation > ul > li {
+  display: inline-block;
+  width: 120px;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.site .navigation > div {
+  vertical-align: top;
+  display: inline-block;
+  width: 200px;
+}
+
+.site .navigation > div > h2.title {
+  font-size:16px;
+}
+
+.site .credits {
+  text-align: right;
+}
+
+.site .credits > *{
+  font-style:italic;
+  text-align: right;
+  margin:0;
+}
+
+
