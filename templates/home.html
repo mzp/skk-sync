@@ -7,15 +7,29 @@
     <thead>
       <th>単語</th>
       <th>注釈</th>
+      <th></th>
     </thead>
   {% for word in words %}
   <tr class="{% cycle odd,even %}">
-    <td>{{ word.word }}({{ word.yomi }})</td>
-    <td>{{ word.annotation|default:"" }}</td>
+    <td class="word">{{ word.word }}({{ word.yomi }})</td>
+    <td class="yomi">{{ word.annotation|default:"" }}</td>
+    <td class="edit">
+      <form action="/dict/del" method="POST">
+	<input type="hidden" name="key" value="{{ word.key }}" />
+	<input type="image" src="/image/trash.gif" alt="削除" />
+      </form>
+    </td>
   </tr>
   {% endfor %}
   </table>
-  <p><a href="/dict/add">単語の追加</a></p>
+
+  <form action="/dict/add" method="POST">
+    <fieldset>
+      <legend>単語の追加</legend>
+      {{ form }}
+      <input type="submit" value="追加" />
+    </fieldset>
+  </form>
 </div>
 
 <div class="span-5 navigation">

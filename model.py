@@ -10,8 +10,7 @@ def isHiragana(char):
 
 def hiragana(xs):
     if not all(map(isHiragana,unicode(xs))):
-        raise db.BadValueError(u"This field should be hiragana")
-
+        raise db.BadValueError("This field should be hiragana")
 
 class Word(db.Model):
   user = db.UserProperty()

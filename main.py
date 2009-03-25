@@ -4,12 +4,13 @@ import wsgiref.handlers
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.api import users
-from google.appengine.ext.webapp.util import login_required
+
 from django import newforms
 from django.newforms import models
 from google.appengine.ext.db import djangoforms
 from google.appengine.ext import db
 
+from util import login_required
 import model
 
 class WordForm(djangoforms.ModelForm):
@@ -43,22 +44,21 @@ class HomeHandler(BaseHandler):
     last = db.GqlQuery("SELECT * FROM Word WHERE user = :1 ORDER BY date DESC LIMIT 1",user).get()
 
     self.render('home',{
+        'form': WordForm(),
         'nickname': user.nickname(),
         'words': words,
         'words_count':count,
         'last_mod':last.date if last else None
         })
 
-class DictHandler(BaseHandler):
+class DictAddHandler(BaseHandler):
+  @login_required
   def post(self):
-    user = users.get_current_user()
-    if not user:
-      self.redirect(users.create_login_url('/'))
     self.request.charset = 'utf8'
     form = WordForm(self.request)
     if form.is_valid():
       model = form.save(commit=False)
-      model.user = user
+      model.user = users.get_current_user()
       model.put()
       self.redirect('/home')
     else:
@@ -73,11 +73,20 @@ class DictHandler(BaseHandler):
         'form': form
         })
 
+class DictDelHandler(BaseHandler):
+  @login_required
+  def post(self):
+    word = model.Word.get(str(self.request.get('key')))
+    if word.user == users.get_current_user():
+      word.delete()
+    self.redirect('/home')
+
 
 def main():
   application = webapp.WSGIApplication([('/', MainHandler),
                                         ('/home',HomeHandler),
-                                        ('/dict/add',DictHandler)
+                                        ('/dict/add' ,DictAddHandler),
+                                        ('/dict/del' ,DictDelHandler)
                                         ],
                                        debug=True)
   wsgiref.handlers.CGIHandler().run(application)
