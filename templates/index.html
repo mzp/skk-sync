@@ -1,140 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
-  <head>
-    <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection" />
-    <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
-    <!--[if IE]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
-    <link rel="stylesheet" href="css/main.css" type="text/css" media="screen, projection" />
-    <title>SKK Sync - SKK辞書を同期しよう!</title>
-  </head>
-  <body>
-    <div class="site">
-      <h1 class="title">SKK Sync
-	<a href="http://b.hatena.ne.jp/entry/http://skk-sync.appspot.com/"
-	   style="border:none;text-decoration:none">
-	  <img
-	     src="http://b.hatena.ne.jp/entry/image/http://skk-sync.appspot.com/"
-	     style="border:none;"/>
-	</a>
-      </h1>
-      <h2 class="description">SKK辞書を同期しよう!</h2>
-      <div class="navigation">
-	<ul>
-	  <li>トップページ</li>
-	  <li>ダウンロード</li>
-	  <li>ログイン/登録</li>
-	</ul>
-      </div>
+{% extends "base.html" %}
+{% block content %}
+<div class="page span-22 prepend-1 append-1">
+  <h1 class="title">SKK Sync</h1>
+  <h2 class="description">あなたの育てたSKK辞書を、インターネットを介して複数のパソコンで同期しよう!</h2>
+  <blockquote>
+    sync for me, sync for you, sync for god
+  </blockquote>
+  <div class="guide span-13 append-1">
+    <h2>特徴</h2>
+    <ul>
+      <li>無料</li>
+      <li><del>SKK辞書の同期・バックアップ</del></li>
+      <li><del>SKK辞書の公開</del></li>
+      <li><del>みんなのSKK辞書のインポート</del></li>
+    </ul>
+
+    <h2>使い方</h2>
+    <ol>
+      <li>サインアップ・アカウントの設定(Googleアカウントでログイン可能)</li>
+      <li>同期クライアントのインストール</li>
+      <li>さあ、同期しよう!</li>
+    </ol>
+
+    <h2>対応しているSKK</h2>
+    <ul>
+      <li><del><a href="http://aquaskk.sourceforge.jp/">AquaSKK(MacOS X)</a></del></li>
+      <li><del>dd-skk(Emacs)</del></li>
+    </ul>
+
+    <h2>開発者の方へ</h2>
+    <p>
+      ウェブAPIを使えば、あなたの使っているSKK用の同期クライアントを開発できます。
+      詳細は、APIリファレンスをご覧ください。
+    </p>
+
+    <h2>寄付</h2>
+    <p>(準備中)</p>
+  </div>
+
+  <div class="statics span-7">
+    <div class="recent">
+      <h2>最近、登録された単語</h2>
+      <table>
+	<tr><td>鏑木</td><td>かぶらぎ</td></tr>
+      </table>
     </div>
 
-    <div class="container">
-      <div class="page span-22 prepend-1 append-1">
-	<h1 class="title">SKK Sync</h1>
-	<h2 class="description">あなたの育てたSKK辞書を、インターネットを介して複数のパソコンで同期しよう!</h2>
-	<blockquote>
-	  sync for me, sync for you, sync for god
-	</blockquote>
-      	<div class="guide span-13 append-1">
-	  <h2>特徴</h2>
-	  <ul>
-	    <li>無料</li>
-	    <li><del>SKK辞書の同期・バックアップ</del></li>
-	    <li><del>SKK辞書の公開</del></li>
-	    <li><del>みんなのSKK辞書のインポート</del></li>
-	  </ul>
-
-	  <h2>使い方</h2>
-	  <ol>
-	    <li>サインアップ・アカウントの設定(Googleアカウントでログイン可能)</li>
-	    <li>同期クライアントのインストール</li>
-	    <li>さあ、同期しよう!</li>
-	  </ol>
-
-	  <h2>対応しているSKK</h2>
-	  <ul>
-	    <li><del><a href="http://aquaskk.sourceforge.jp/">AquaSKK(MacOS X)</a></del></li>
-	    <li><del>dd-skk(Emacs)</del></li>
-	  </ul>
-
-	  <h2>開発者の方へ</h2>
-	  <p>
-	    ウェブAPIを使えば、あなたの使っているSKK用の同期クライアントを開発できます。
-	    詳細は、APIリファレンスをご覧ください。
-	  </p>
-
-	  <h2>寄付</h2>
-	  <p>(準備中)</p>
-	</div>
-
-	<div class="statics span-7">
-	  <div class="recent">
-	    <h2>最近、登録された単語</h2>
-	    <table>
-	      <tr><td>鏑木</td><td>かぶらぎ</td></tr>
-	    </table>
-	  </div>
-
-	  <div class="popular">
-	    <h2>人気の単語</h2>
-	    <table>
-	      <tr><td>鏑木</td><td>かぶらぎ</td></tr>
-	    </table>
-	  </div>
-
-	  <div class="popular recent">
-	    <h2>最近、人気の単語</h2>
-	    <table>
-	      <tr><td>鏑木</td><td>かぶらぎ</td></tr>
-	    </table>
-	  </div>
-	</div>
-      </div>
+    <div class="popular">
+      <h2>人気の単語</h2>
+      <table>
+	<tr><td>鏑木</td><td>かぶらぎ</td></tr>
+      </table>
     </div>
 
-      <div class="publication">
-	<div class="navigation">
-	  <h1 class="title">サイトマップ</h1>
-	  <div>
-	    <h2 class="title">辞書の管理</h2>
-	    <ul>
-	      <li>辞書の管理</li>
-	      <li>辞書の公開</li>
-	      <li>みんなの辞書を検索</li>
-	      <li>インポート・エクスポート</li>
-	      <li>設定</li>
-	    </ul>
-	  </div>
-
-	  <div>
-	    <h2 class="title">ダウンロード</h2>
-	    <ul>
-	      <li>同期クライアント</li>
-	    </ul>
-	  </div>
-
-	  <div>
-	    <h2 class="title">使い方</h2>
-	    <ul>
-	      <li>チュートリアル</li>
-	    </ul>
-	  </div>
-	  <div>
-	    <h2 class="title">開発者の方へ</h2>
-	    <ul>
-	      <li>チュートリアル</li>
-	      <li>APIリファレンス</li>
-	      <li>開発への参加</li>
-	    </ul>
-	  </div>
-	</div>
-
-	<div class="credits">
-	  <address>Copyright &copy; 2009 <a href="http://howdyworld.org/">MIZUNO Hiroki / mzp</a>.</address>
-	  <p>Powered by <a href="http://code.google.com/appengine/">Google App Engine</a>.</p>
-	  <p>Developing on <a href="http://github.com/mzp/skk-sync/tree/master">GitHub</a>.</p>
-	</div>
-      </div>
-  </body>
-</html>
+    <div class="popular recent">
+      <h2>最近、人気の単語</h2>
+      <table>
+	<tr><td>鏑木</td><td>かぶらぎ</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

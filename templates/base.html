@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+  <head>
+    <link rel="stylesheet" href="css/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+    <!--[if IE]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen, projection" /><![endif]-->
+    <link rel="stylesheet" href="css/main.css" type="text/css" media="screen, projection" />
+    <title>{% block title %}SKK Sync - SKK辞書を同期しよう!{% endblock %}</title>
+  </head>
+  <body>
+    <div class="site">
+      <h1 class="title">SKK Sync
+	<a href="http://b.hatena.ne.jp/entry/http://skk-sync.appspot.com/"
+	   style="border:none;text-decoration:none">
+	  <img
+	     src="http://b.hatena.ne.jp/entry/image/http://skk-sync.appspot.com/"
+	     style="border:none;"/>
+	</a>
+      </h1>
+      <h2 class="description">SKK辞書を同期しよう!</h2>
+      <div class="navigation">
+	<ul>
+	  <li>トップページ</li>
+	  <li>ダウンロード</li>
+	  <li>ログイン/登録</li>
+	</ul>
+      </div>
+    </div>
+
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+
+    <div class="publication">
+      <div class="navigation">
+	<h1 class="title">サイトマップ</h1>
+	<div>
+	  <h2 class="title">辞書の管理</h2>
+	  <ul>
+	    <li>辞書の管理</li>
+	    <li>辞書の公開</li>
+	    <li>みんなの辞書を検索</li>
+	    <li>インポート・エクスポート</li>
+	    <li>設定</li>
+	  </ul>
+	</div>
+
+	<div>
+	  <h2 class="title">ダウンロード</h2>
+	  <ul>
+	    <li>同期クライアント</li>
+	  </ul>
+	</div>
+
+	<div>
+	  <h2 class="title">使い方</h2>
+	  <ul>
+	    <li>チュートリアル</li>
+	  </ul>
+	</div>
+	<div>
+	  <h2 class="title">開発者の方へ</h2>
+	  <ul>
+	    <li>チュートリアル</li>
+	    <li>APIリファレンス</li>
+	    <li>開発への参加</li>
+	  </ul>
+	</div>
+      </div>
+
+      <div class="credits">
+	<address>Copyright &copy; 2009 <a href="http://howdyworld.org/">MIZUNO Hiroki / mzp</a>.</address>
+	<p>Powered by <a href="http://code.google.com/appengine/">Google App Engine</a>.</p>
+	<p>Developing on <a href="http://github.com/mzp/skk-sync/tree/master">GitHub</a>.</p>
+      </div>
+    </div>
+  </body>
+</html>
